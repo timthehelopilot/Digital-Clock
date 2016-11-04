@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="digital-7.ttf">
+            <string>Digital-7</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Digital_Clock" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +26,123 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCs-p8-GvZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0016304991440847516" green="0.0016311180079355836" blue="0.0016304175369441509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="75"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHA-UT-i8q">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.99990183115005493" green="1" blue="0.99987989664077759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YUu-lt-xfd"/>
+                                </constraints>
+                                <state key="normal" title="Show Settings">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vRG-HI-Kvf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzd-TS-pfq">
+                                <rect key="frame" x="16" y="459" width="343" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E39-9c-Gc7">
+                                        <rect key="frame" x="8" y="8" width="76" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CDQ-O1-HUy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ROK-ny-gbu">
+                                        <rect key="frame" x="8" y="30" width="327" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="r8k-yP-mtj"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="White"/>
+                                            <segment title="Black"/>
+                                            <segment title="Red"/>
+                                            <segment title="Green"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="clockColorSegmentControlChosen:" destination="BYZ-38-t0r" eventType="valueChanged" id="n70-oV-m2G"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eef-c7-gfv">
+                                        <rect key="frame" x="8" y="105" width="327" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="ewF-Yj-a93"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Black"/>
+                                            <segment title="White"/>
+                                            <segment title="Yellow"/>
+                                            <segment title="Blue"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="backgroundColorSegmentedControlChosen:" destination="BYZ-38-t0r" eventType="valueChanged" id="wtW-Zl-lqc"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2b-jv-6h6">
+                                        <rect key="frame" x="8" y="76" width="127" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="M4v-Yw-Eg6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eef-c7-gfv" firstAttribute="leading" secondItem="hzd-TS-pfq" secondAttribute="leading" constant="8" id="3tJ-ex-RoF"/>
+                                    <constraint firstAttribute="bottom" secondItem="eef-c7-gfv" secondAttribute="bottom" constant="17" id="5he-5x-Irs"/>
+                                    <constraint firstItem="ROK-ny-gbu" firstAttribute="top" secondItem="E39-9c-Gc7" secondAttribute="bottom" constant="1" id="7z0-1W-YvF"/>
+                                    <constraint firstItem="E39-9c-Gc7" firstAttribute="top" secondItem="hzd-TS-pfq" secondAttribute="top" constant="8" id="Ddh-a0-qN4"/>
+                                    <constraint firstAttribute="height" constant="150" id="Fhl-8f-bJs"/>
+                                    <constraint firstItem="Q2b-jv-6h6" firstAttribute="leading" secondItem="hzd-TS-pfq" secondAttribute="leading" constant="8" id="G1J-Xh-5yR"/>
+                                    <constraint firstItem="eef-c7-gfv" firstAttribute="top" secondItem="Q2b-jv-6h6" secondAttribute="bottom" constant="8" id="JYr-2M-hHO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q2b-jv-6h6" secondAttribute="trailing" constant="208" id="Jab-eW-65z"/>
+                                    <constraint firstItem="E39-9c-Gc7" firstAttribute="leading" secondItem="hzd-TS-pfq" secondAttribute="leading" constant="8" id="Rep-RT-VBB"/>
+                                    <constraint firstAttribute="trailing" secondItem="ROK-ny-gbu" secondAttribute="trailing" constant="8" id="Rgx-dP-H7s"/>
+                                    <constraint firstAttribute="trailing" secondItem="eef-c7-gfv" secondAttribute="trailing" constant="8" id="VIP-Wv-tgm"/>
+                                    <constraint firstItem="Q2b-jv-6h6" firstAttribute="top" secondItem="ROK-ny-gbu" secondAttribute="bottom" constant="18" id="Xgn-ha-Irm"/>
+                                    <constraint firstItem="ROK-ny-gbu" firstAttribute="leading" secondItem="hzd-TS-pfq" secondAttribute="leading" constant="8" id="bN3-Xp-hgV"/>
+                                    <constraint firstAttribute="trailing" secondItem="E39-9c-Gc7" secondAttribute="trailing" constant="259" id="t0r-cu-j8h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hzd-TS-pfq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5Q5-pZ-BmW"/>
+                            <constraint firstItem="iHA-UT-i8q" firstAttribute="top" secondItem="hzd-TS-pfq" secondAttribute="bottom" constant="8" id="BYg-ph-t0o"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iHA-UT-i8q" secondAttribute="bottom" constant="20" id="FmE-9Y-one"/>
+                            <constraint firstAttribute="trailing" secondItem="HCs-p8-GvZ" secondAttribute="trailing" id="MZG-1u-5Jo"/>
+                            <constraint firstItem="HCs-p8-GvZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OLA-fG-2ct"/>
+                            <constraint firstItem="iHA-UT-i8q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ZKI-Rk-PUF"/>
+                            <constraint firstItem="iHA-UT-i8q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dYO-8W-8tI"/>
+                            <constraint firstItem="hzd-TS-pfq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eFp-Ti-4vL"/>
+                            <constraint firstItem="HCs-p8-GvZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="g36-UX-w7Q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HCs-p8-GvZ" secondAttribute="bottom" id="zbx-HO-QKd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundSegmentedControl" destination="eef-c7-gfv" id="p02-Nj-o1y"/>
+                        <outlet property="clockColorSegmentedControl" destination="ROK-ny-gbu" id="Fbv-5T-r2N"/>
+                        <outlet property="settingsButton" destination="iHA-UT-i8q" id="s5m-aY-Ky9"/>
+                        <outlet property="settingsView" destination="hzd-TS-pfq" id="Eld-MQ-Buy"/>
+                        <outlet property="timeLabel" destination="HCs-p8-GvZ" id="dIE-lj-fC5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-767.20000000000005" y="-255.02248875562222"/>
         </scene>
     </scenes>
 </document>
